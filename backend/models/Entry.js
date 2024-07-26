@@ -1,1 +1,0 @@
-schema for travel entries

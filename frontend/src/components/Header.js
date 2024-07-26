@@ -1,22 +1,19 @@
-// Header.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css'; // Ensure you have a CSS file for styling
+import React from 'react'; // Import React for building components
+import { Link } from 'react-router-dom'; // Import Link for navigation
 
 const Header = () => {
-    return (
-        <header className="header">
-            <h1>Travel Diary</h1>
-            <nav>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/favorites">Favorites</Link></li>
-                    <li><Link to="/do-not-recommend">Do Not Recommend</Link></li>
-                    <li><Link to="/map">Map</Link></li>
-                </ul>
-            </nav>
-        </header>
-    );
+  return (
+    <header>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li> {/* Navigation link to Home page */}
+          <li><Link to="/favorites">Favorites</Link></li> {/* Navigation link to Favorites page */}
+          <li><Link to="/do-not-recommend">Do Not Recommend</Link></li> {/* Navigation link to Do Not Recommend page */}
+          <li><Link to="/map">Map</Link></li> {/* Navigation link to Map page */}
+        </ul>
+      </nav>
+    </header>
+  );
 };
 
 export default Header;

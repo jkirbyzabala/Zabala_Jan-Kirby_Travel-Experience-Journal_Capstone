@@ -1,13 +1,12 @@
-// HomePage.js
-import React from 'react';
+import React from 'react'; // Import React for building components
 
 const HomePage = () => {
-    return (
-        <div className="home-page">
-            <h2>Welcome to Your Travel Diary</h2>
-            <p>Explore your travel entries and manage your favorites and recommendations.</p>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Welcome to the Travel Experience Journal!</h1>
+      <p>Document and explore your travel experiences.</p>
+    </div>
+  );
 };
 
 export default HomePage;

@@ -1,16 +1,31 @@
-import React, { useState } from 'react'; // Import React and useState for component state management
-import MapComponent from '../components/MapComponent'; // Import the MapComponent to display the map
+// src/pages/MapPage.js
 
+import React, { useState, useEffect } from 'react';
+import MapComponent from '../components/MapComponent';
+import axios from 'axios';
+
+// MapPage component displays the map and manages data fetching
 const MapPage = () => {
-  // State to manage map-related data
   const [entries, setEntries] = useState([]);
+
+  // Fetch data from the API on component mount
+  useEffect(() => {
+    const fetchEntries = async () => {
+      try {
+        const response = await axios.get('/api/entries');
+        setEntries(response.data);
+      } catch (error) {
+        console.error('Error fetching entries:', error);
+      }
+    };
+
+    fetchEntries();
+  }, []);
 
   return (
     <div>
-      <h1>Travel Map</h1>
-      <p>View your travel entries on the map and explore your journey.</p>
+      <h1>Map of Travel Experiences</h1>
       <MapComponent entries={entries} />
-      {/* MapComponent will handle displaying entries on the map */}
     </div>
   );
 };

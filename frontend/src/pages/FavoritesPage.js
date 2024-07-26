@@ -1,18 +1,13 @@
-// FavoritesPage.js
-import React from 'react';
+import React from 'react'; // Import React for building components
 
 const FavoritesPage = () => {
-    return (
-        <div className="favorites-page">
-            <h2>Favorites</h2>
-            <ul>
-                <li>Favorite place to eat: [Details]</li>
-                <li>Favorite hike: [Details]</li>
-                <li>Favorite brewery: [Details]</li>
-                <li>Favorite stay: [Details]</li>
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Favorite Places</h1>
+      <p>Here you'll find all your favorite places to visit, eat, stay, and more.</p>
+      {/* You can add functionality to list and manage favorite places here */}
+    </div>
+  );
 };
 
 export default FavoritesPage;

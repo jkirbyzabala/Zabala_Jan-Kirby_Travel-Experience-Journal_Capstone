@@ -1,14 +1,18 @@
-// MapPage.js
-import React from 'react';
+import React, { useState } from 'react'; // Import React and useState for component state management
+import MapComponent from '../components/MapComponent'; // Import the MapComponent to display the map
 
 const MapPage = () => {
-    return (
-        <div className="map-page">
-            <h2>Travel Map</h2>
-            {/* Integrate a map API or component here */}
-            <div id="map">Map goes here</div>
-        </div>
-    );
+  // State to manage map-related data
+  const [entries, setEntries] = useState([]);
+
+  return (
+    <div>
+      <h1>Travel Map</h1>
+      <p>View your travel entries on the map and explore your journey.</p>
+      <MapComponent entries={entries} />
+      {/* MapComponent will handle displaying entries on the map */}
+    </div>
+  );
 };
 
 export default MapPage;

@@ -1,17 +1,13 @@
-// DoNotRecommendPage.js
-import React from 'react';
+import React from 'react'; // Import React for building components
 
 const DoNotRecommendPage = () => {
-    return (
-        <div className="do-not-recommend-page">
-            <h2>Do Not Recommend</h2>
-            <ul>
-                <li>Place 1: [Details]</li>
-                <li>Place 2: [Details]</li>
-                <li>Place 3: [Details]</li>
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Do Not Recommend</h1>
+      <p>View and manage places you do not recommend to others.</p>
+      {/* You can add functionality to list and manage non-recommendations here */}
+    </div>
+  );
 };
 
 export default DoNotRecommendPage;

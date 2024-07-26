@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'; // Import React, useEffect, 
 import axios from 'axios'; // Import axios for making HTTP requests
 
 const EntryList = () => {
-  const [entries, setEntries] = useState([]); // State to store the list of entries
+  const [entries, setEntries] = useState([]); // State to store the list of travel entries
 
-  // Fetch entries from the server when the component mounts
+  // Fetch travel entries from the server when the component mounts
   useEffect(() => {
     const fetchEntries = async () => {
       try {
         const response = await axios.get('/api/entries');
-        setEntries(response.data); // Update state with the fetched entries
+        setEntries(response.data); // Update state with the fetched travel entries
       } catch (error) {
-        console.error('Error fetching entries:', error);
+        console.error('Error fetching travel entries:', error);
       }
     };
 
@@ -27,8 +27,9 @@ const EntryList = () => {
             <h3>{entry.title}</h3>
             <p>Location: {entry.location}</p>
             <p>Date: {new Date(entry.date).toLocaleDateString()}</p>
+            <p>Duration: {entry.duration} hours</p>
             <img src={entry.photo} alt={entry.title} style={{ width: '100px', height: '100px' }} />
-            <p>{entry.notes}</p>
+            <p>Notes: {entry.notes}</p>
           </li>
         ))}
       </ul>

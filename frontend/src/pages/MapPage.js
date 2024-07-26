@@ -1,5 +1,4 @@
-// src/pages/MapPage.js
-
+// MapPage.js
 import React, { useState, useEffect } from 'react';
 import MapComponent from '../components/MapComponent';
 import axios from 'axios';

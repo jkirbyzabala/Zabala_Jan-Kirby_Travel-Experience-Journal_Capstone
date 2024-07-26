@@ -1,0 +1,35 @@
+/* src/styles/MapComponent.css */
+
+/* Container for the map */
+.map-container {
+    width: 100%; /* Full width of its parent */
+    height: 600px; /* Fixed height for the map */
+    border: 1px solid #ddd; /* Light grey border around the map */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Ensure content does not overflow */
+  }
+  
+  /* Mapbox navigation controls */
+  .mapboxgl-ctrl-group {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for controls */
+    border-radius: 4px; /* Rounded corners for controls */
+  }
+  
+  /* Mapbox markers */
+  .mapboxgl-marker {
+    cursor: pointer; /* Pointer cursor for markers */
+  }
+  
+  /* Mapbox popup styling */
+  .mapboxgl-popup {
+    font-size: 14px; /* Adjust font size in popup */
+  }
+  
+  .mapboxgl-popup-content {
+    padding: 10px; /* Padding inside the popup */
+    background-color: #fff; /* White background for popup */
+    border-radius: 4px; /* Rounded corners for popup */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  

@@ -1,6 +1,5 @@
-// Import necessary modules
 import React from 'react'; // Import React for building the UI
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Import Router and Route components for routing
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router and Routes components for routing
 import HomePage from './pages/HomePage'; // Import the HomePage component
 import FavoritesPage from './pages/FavoritesPage'; // Import the FavoritesPage component
 import DoNotRecommendPage from './pages/DoNotRecommendPage'; // Import the DoNotRecommendPage component
@@ -12,13 +11,13 @@ const App = () => {
     <Router>
       {/* Render the Header component on all pages */}
       <Header />
-      <Switch>
+      <Routes>
         {/* Define routes for different pages */}
-        <Route exact path="/" component={HomePage} />
-        <Route path="/favorites" component={FavoritesPage} />
-        <Route path="/do-not-recommend" component={DoNotRecommendPage} />
-        <Route path="/map" component={MapPage} />
-      </Switch>
+        <Route path="/" element={<HomePage />} /> {/* Route for the home page */}
+        <Route path="/favorites" element={<FavoritesPage />} /> {/* Route for the favorites page */}
+        <Route path="/do-not-recommend" element={<DoNotRecommendPage />} /> {/* Route for the do not recommend page */}
+        <Route path="/map" element={<MapPage />} /> {/* Route for the map page */}
+      </Routes>
     </Router>
   );
 };

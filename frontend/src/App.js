@@ -5,6 +5,7 @@ import FavoritesPage from './pages/FavoritesPage'; // Import the FavoritesPage c
 import DoNotRecommendPage from './pages/DoNotRecommendPage'; // Import the DoNotRecommendPage component
 import MapPage from './pages/MapPage'; // Import the MapPage component
 import Header from './components/Header'; // Import the Header component
+import EntryList from './components/EntryList'; // Import the EntryList component
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/favorites" element={<FavoritesPage />} /> {/* Route for the favorites page */}
         <Route path="/do-not-recommend" element={<DoNotRecommendPage />} /> {/* Route for the do not recommend page */}
         <Route path="/map" element={<MapPage />} /> {/* Route for the map page */}
+        <Route path="/entries" element={<EntryList />} /> {/* Route for the entries page */}
       </Routes>
     </Router>
   );

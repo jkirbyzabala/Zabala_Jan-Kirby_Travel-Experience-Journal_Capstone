@@ -1,0 +1,45 @@
+/* src/pages/HomePage.css */
+
+.home-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .image-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .image-info {
+    padding: 10px;
+  }
+  
+  .image-info h2 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .image-info p {
+    margin: 5px 0;
+  }
+  

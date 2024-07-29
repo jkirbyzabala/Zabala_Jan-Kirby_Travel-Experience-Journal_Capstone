@@ -1,15 +1,12 @@
-// config/db.js
 const mongoose = require('mongoose');
 
 // Connect to MongoDB using the URI from the environment variables
 const connectDB = async () => {
   try {
-    // Replace with your actual MongoDB URI from the .env file
-    const conn = await mongoose.connect(process.env.MONGO_URI, {
+    // Use the MONGODB_URI from environment variables
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
     });
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {

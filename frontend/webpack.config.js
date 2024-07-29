@@ -8,7 +8,7 @@ module.exports = {
   
   // Output configuration
   output: {
-    path: path.resolve(__dirname, 'dist'), // Output directory
+    path: path.resolve(__dirname, 'build'), // Output directory
     filename: 'bundle.js', // Output file name
     clean: true, // Clean the output directory before each build
   },

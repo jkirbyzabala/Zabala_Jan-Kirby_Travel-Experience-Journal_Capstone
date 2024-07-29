@@ -1,3 +1,5 @@
+const path = require('path');
+
 // Import necessary modules
 const express = require('express'); // Import Express for server functionality
 const mongoose = require('mongoose'); // Import Mongoose for MongoDB connection
@@ -27,14 +29,16 @@ app.use('/entries', entryRoutes); // Routes for entries
 app.use('/donotrecommend', doNotRecommendRoutes); // Routes for "do not recommend" items
 app.use('/images', imageRoutes); // Routes for images
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Catch-all handler for any request that doesn't match an API route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
 
 // Set the port from environment variable or default to 5000
 const PORT = process.env.PORT || 5000;
-
-app.get('/', (req, res) => {
-  res.status(234).send('SERVER IS LISTENING WELCOME')
-})
-
 
 // Start the server
 app.listen(PORT, () => {

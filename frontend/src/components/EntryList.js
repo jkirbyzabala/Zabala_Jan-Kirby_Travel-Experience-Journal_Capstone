@@ -8,8 +8,8 @@ const EntryList = () => {
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const response = await axios.get('/api/entries');
-        setEntries(response.data); // Update state with the fetched travel entries
+        const response = await axios.get('http://localhost:5000/entries'); // Correct API endpoint
+        setEntries(response.data.data); // Update state with the fetched travel entries
       } catch (error) {
         console.error('Error fetching travel entries:', error);
       }
@@ -24,11 +24,11 @@ const EntryList = () => {
       <ul>
         {entries.map((entry) => (
           <li key={entry._id}>
-            <h3>{entry.title}</h3>
-            <p>Location: {entry.location}</p>
-            <p>Date: {new Date(entry.date).toLocaleDateString()}</p>
-            <p>Duration: {entry.duration} hours</p>
-            <img src={entry.photo} alt={entry.title} style={{ width: '100px', height: '100px' }} />
+            <h3>{entry.location}</h3>
+            <p>Start Date: {new Date(entry.startDate).toLocaleDateString()}</p>
+            <p>End Date: {new Date(entry.endDate).toLocaleDateString()}</p>
+            <p>Duration: {entry.duration} days</p>
+            <img src={entry.photo} alt={entry.location} style={{ width: '100px', height: '100px' }} />
             <p>Notes: {entry.notes}</p>
           </li>
         ))}

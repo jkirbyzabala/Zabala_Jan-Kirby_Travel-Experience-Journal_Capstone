@@ -10,8 +10,11 @@ const HomePage = () => {
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/entries');
-        setEntries(response.data);
+       await axios.get('http://localhost:5000/entries').then((response)=>{
+        console.log(response)
+          setEntries(response.data.data);
+        });
+        
       } catch (error) {
         setError('There was an error fetching the entries!');
         console.error('Error fetching entries:', error);
@@ -29,11 +32,9 @@ const HomePage = () => {
         entries.map(entry => (
           <div key={entry._id}>
             <h2>{entry.location}</h2>
-            {entry.photos && entry.photos.length > 0 && (
+            {entry.photo && (
               <div>
-                {entry.photos.map((photoUrl, index) => (
-                  <img key={index} src={photoUrl} alt={`Photo ${index + 1}`} style={{ width: '100%' }} />
-                ))}
+                <img src={entry.photo} style={{ width: '100%' }} />
               </div>
             )}
             <p>{entry.notes}</p>

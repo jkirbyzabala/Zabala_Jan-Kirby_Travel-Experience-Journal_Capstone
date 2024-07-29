@@ -1,7 +1,7 @@
 // backend/models/Entry.js
 const mongoose = require('mongoose');
 
-const entrySchema = new mongoose.Schema({
+const entrySchema = mongoose.Schema({
   location: {
     type: String,
     required: true,
@@ -18,8 +18,8 @@ const entrySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  photos: {
-    type: [String], // Array of photo URLs
+  photo: { // Changed from photos to photo
+    type: String, // Single photo URL
     required: true,
   },
   notes: {

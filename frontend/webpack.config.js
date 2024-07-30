@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack'); // Import the dotenv-webpack plugin
 
 module.exports = {
   // Entry point for the application
@@ -56,6 +57,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css',
     }),
+    new Dotenv(), // Add dotenv-webpack plugin
   ],
 
   // Development server configuration

@@ -1,26 +1,17 @@
-/* src/styles/FavoritesList.css */
 .favorites-list {
-    background-color: #FEFAE0; /* Light background color */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    margin: auto;
+    background-color: #FEFAE0; /* Background color */
   }
   
   .favorite-entry {
-    background-color: #F6E6CB; /* Light tan background for each entry */
-    padding: 15px;
+    border: 1px solid #B99470;
     border-radius: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #B99470; /* Dark brown border */
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #FFF;
   }
   
-  .favorite-entry h3 {
-    color: #5F6F52; /* Dark green for title */
-  }
-  
-  .favorite-entry p {
-    color: #967E76; /* Darker text color for details */
+  .favorite-entry img {
+    border-radius: 5px;
   }
   

@@ -1,39 +1,40 @@
-// src/pages/FavoritesPage.js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import FavoritesList from '../components/FavoritesList';
-import FavoritesForm from '../components/FavoritesForm';
-import '../styles/FavoritesPage.css'; // Import the CSS file
+import React, { useState } from 'react';
+import '../styles/FavoritesPage.css';
+import FavoritesForm from '../components/FavoritesForm'; // Import the FavoritesForm component
 
 const FavoritesPage = () => {
-  const [favoriteEntries, setFavoriteEntries] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const fetchFavoriteEntries = async () => {
-      try {
-        const response = await axios.get('/favorites'); // Updated API endpoint
-        setFavoriteEntries(response.data);
-      } catch (error) {
-        console.error('Error fetching favorite entries:', error);
-      }
-    };
-    fetchFavoriteEntries();
-  }, []);
+  // Hardcoded list of images
+  const photos = [
+    '/favoritesimgs/IMG_0785.JPG',
+    '/favoritesimgs/IMG_8480.jpg',
+    '/favoritesimgs/Iceland.jpg'
+  ];
 
-  const handleAddEntry = async (entry) => {
-    try {
-      const response = await axios.post('/favorites', entry); // Updated API endpoint
-      setFavoriteEntries([...favoriteEntries, response.data]);
-    } catch (error) {
-      console.error('Error adding favorite entry:', error);
-    }
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? photos.length - 1 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === photos.length - 1 ? 0 : prevIndex + 1));
   };
 
   return (
     <div>
-      <h1>Favorites</h1>
-      <FavoritesForm onAddFavorite={handleAddEntry} />
-      <FavoritesList entries={favoriteEntries} />
+      <div className="carousel-section">
+        <h2 className="carousel-title">Favorite Hikes</h2>
+        <div className="carousel-container">
+          <button className="carousel-button" onClick={handlePrev}>Prev</button>
+          <div className="carousel-slide">
+            <img src={photos[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
+          </div>
+          <button className="carousel-button" onClick={handleNext}>Next</button>
+        </div>
+      </div>
+      <div className="favorites-form-container">
+        <FavoritesForm onAddFavorite={() => {}} /> {/* Replace with appropriate function or prop */}
+      </div>
     </div>
   );
 };

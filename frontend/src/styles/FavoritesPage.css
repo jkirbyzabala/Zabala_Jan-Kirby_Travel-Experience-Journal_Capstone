@@ -1,11 +1,52 @@
 /* src/styles/FavoritesPage.css */
-body {
-    background-color: #FEFAE0; /* Light background color for the page */
-    color: #5F6F52; /* Text color */
+
+.carousel-section {
+    text-align: center;
+    margin: 20px auto;
   }
   
-  h1 {
-    color: #B99470; /* Darker text color for the header */
+  .carousel-title {
+    font-size: 24px;
+    color: #B99470;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .carousel-slide {
+    flex: 1;
+    overflow: hidden;
     text-align: center;
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .carousel-button {
+    background-color: #B99470;
+    color: #FEFAE0;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .carousel-button:hover {
+    background-color: #A9B388;
+  }
+  
+  .favorites-form-container {
+    margin: 20px auto;
+    max-width: 800px;
   }
   

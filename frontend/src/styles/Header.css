@@ -1,0 +1,34 @@
+/* src/styles/Header.css */
+
+.header {
+    background: #b82828; /* Dark background for header */
+    color: #130101; /* White text color */
+    padding: 10px 0;
+    text-align: center; 
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Horizontal layout */
+    justify-content: space-around; /* Space out links */
+    width: 50%; /* Spread out across the width */
+}
+
+.nav-links li {
+    margin: 0 15px; /* Spacing between links */
+}
+
+.nav-links a {
+    color: #161652; /* White color for header links */
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

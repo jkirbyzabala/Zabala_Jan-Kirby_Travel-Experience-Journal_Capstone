@@ -1,16 +1,28 @@
-import React from 'react'; // Import React for building components
-import { Link } from 'react-router-dom'; // Import Link for navigation
+// src/components/Header.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/Header.css'; // Ensure you have the correct path
 
 const Header = () => {
   return (
-    <header>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li> {/* Navigation link to Home page */}
-          <li><Link to="/favorites">Favorites</Link></li> {/* Navigation link to Favorites page */}
-          <li><Link to="/do-not-recommend">Do Not Recommend</Link></li> {/* Navigation link to Do Not Recommend page */}
-          <li><Link to="/map">Map</Link></li> {/* Navigation link to Map page */}
-          <li><Link to="/create-entry">Create Entry</Link></li> {/* Navigation link to Create Entry page */}
+    <header className="header">
+      <nav className="nav">
+        <ul className="nav-links">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/favorites">Favorites</Link>
+          </li>
+          <li>
+            <Link to="/do-not-recommend">Do Not Recommend</Link>
+          </li>
+          <li>
+            <Link to="/map">Map</Link>
+          </li>
+          <li>
+            <Link to="/create-entry">Create Entry</Link>
+          </li>
         </ul>
       </nav>
     </header>

@@ -1,27 +1,26 @@
-// Import necessary modules
-import React, { useState } from 'react'; // Import React and useState hook
+// src/components/FavoritesForm.js
+import React, { useState } from 'react';
+import '../styles/FavoritesForm.css'; // Ensure this path is correct
 
 const FavoritesForm = ({ onAddFavorite }) => {
-  // Define state variables for the form inputs
   const [place, setPlace] = useState('');
   const [category, setCategory] = useState('');
+  const [photoURL, setPhotoURL] = useState(''); // Added for photo URL
 
-  // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-    if (place && category) {
-      // Call the parent component's function to add a new favorite
-      onAddFavorite({ place, category });
-      // Clear form inputs
+    e.preventDefault();
+    if (place && category && photoURL) { // Check all fields
+      onAddFavorite({ place, category, photoURL }); // Include photo URL
       setPlace('');
       setCategory('');
+      setPhotoURL(''); // Clear photo URL
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="favorites-form" onSubmit={handleSubmit}>
       <h2>Add a Favorite</h2>
-      <div>
+      <div className="form-group">
         <label htmlFor="place">Place:</label>
         <input
           type="text"
@@ -31,7 +30,7 @@ const FavoritesForm = ({ onAddFavorite }) => {
           required
         />
       </div>
-      <div>
+      <div className="form-group">
         <label htmlFor="category">Category:</label>
         <input
           type="text"
@@ -41,9 +40,20 @@ const FavoritesForm = ({ onAddFavorite }) => {
           required
         />
       </div>
+      <div className="form-group">
+        <label htmlFor="photoURL">Photo URL:</label>
+        <input
+          type="text"
+          id="photoURL"
+          value={photoURL}
+          onChange={(e) => setPhotoURL(e.target.value)}
+          required
+        />
+      </div>
       <button type="submit">Add Favorite</button>
     </form>
   );
 };
 
 export default FavoritesForm;
+  

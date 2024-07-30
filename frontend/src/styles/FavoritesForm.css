@@ -1,0 +1,55 @@
+/* src/styles/FavoritesForm.css */
+
+.favorites-form {
+    background-color: #FEFAE0; /* Light background for the form */
+    padding: 20px;
+    border-radius: 8px; /* Slightly rounded corners for a modern look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .favorites-form h2 {
+    color: #B99470; /* Light brown for headings */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .favorites-form .form-group {
+    margin-bottom: 20px; /* Added space between form groups */
+  }
+  
+  .favorites-form label {
+    color: #5F6F52; /* Dark green for labels */
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+  }
+  
+  .favorites-form input {
+    width: calc(100% - 22px); /* Full width minus padding and border */
+    padding: 10px;
+    border: 1px solid #B99470; /* Dark brown border for input fields */
+    border-radius: 4px;
+    background-color: #FFF8F3; /* Light background for input fields */
+    color: #5F6F52; /* Dark green text color */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  
+  .favorites-form button {
+    background-color: #033f1a; /* Dark green for buttons */
+    color: #FEFAE0; /* Light text color */
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%; /* Make the button the same width as the form fields */
+  }
+  
+  .favorites-form button:hover {
+    background-color: #A9B388; /* Lighter green on hover */
+  }
+  

@@ -1,0 +1,11 @@
+/* src/styles/FavoritesPage.css */
+body {
+    background-color: #FEFAE0; /* Light background color for the page */
+    color: #5F6F52; /* Text color */
+  }
+  
+  h1 {
+    color: #B99470; /* Darker text color for the header */
+    text-align: center;
+  }
+  

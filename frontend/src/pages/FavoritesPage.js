@@ -1,19 +1,17 @@
-// FavoritesPage.js
+// src/pages/FavoritesPage.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FavoritesList from '../components/FavoritesList';
 import FavoritesForm from '../components/FavoritesForm';
+import '../styles/FavoritesPage.css'; // Import the CSS file
 
-// FavoritesPage is a page component for managing favorite entries
 const FavoritesPage = () => {
-  // State to store favorite entries
   const [favoriteEntries, setFavoriteEntries] = useState([]);
 
-  // Fetch favorite entries from the API
   useEffect(() => {
     const fetchFavoriteEntries = async () => {
       try {
-        const response = await axios.get('/api/favorites');
+        const response = await axios.get('/favorites'); // Updated API endpoint
         setFavoriteEntries(response.data);
       } catch (error) {
         console.error('Error fetching favorite entries:', error);
@@ -22,10 +20,9 @@ const FavoritesPage = () => {
     fetchFavoriteEntries();
   }, []);
 
-  // Function to handle adding a new favorite entry
   const handleAddEntry = async (entry) => {
     try {
-      const response = await axios.post('/api/favorites', entry);
+      const response = await axios.post('/favorites', entry); // Updated API endpoint
       setFavoriteEntries([...favoriteEntries, response.data]);
     } catch (error) {
       console.error('Error adding favorite entry:', error);
@@ -35,7 +32,7 @@ const FavoritesPage = () => {
   return (
     <div>
       <h1>Favorites</h1>
-      <FavoritesForm onAddEntry={handleAddEntry} />
+      <FavoritesForm onAddFavorite={handleAddEntry} />
       <FavoritesList entries={favoriteEntries} />
     </div>
   );

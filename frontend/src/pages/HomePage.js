@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import EditEntryForm from './EditEntryForm'; // Import the EditEntryForm component
+import EditEntryForm from './EditEntryForm';
 import '../styles/HomePage.css';
 
 const HomePage = () => {
   const [entries, setEntries] = useState([]);
   const [error, setError] = useState(null);
   const [editingEntry, setEditingEntry] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0); // To keep track of the current entry index
 
   useEffect(() => {
     const fetchEntries = async () => {
@@ -26,6 +27,8 @@ const HomePage = () => {
     try {
       await axios.delete(`http://localhost:5000/entries/${id}`);
       setEntries(entries.filter(entry => entry._id !== id));
+      // Update the current index if needed
+      setCurrentIndex(prevIndex => (prevIndex >= entries.length - 1 ? entries.length - 2 : prevIndex));
     } catch (error) {
       setError('There was an error deleting the entry!');
       console.error('Error deleting entry:', error);
@@ -51,29 +54,41 @@ const HomePage = () => {
     setEditingEntry(null);
   };
 
+  const handleNext = () => {
+    setCurrentIndex(prevIndex => (prevIndex + 1) % entries.length);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex(prevIndex => (prevIndex - 1 + entries.length) % entries.length);
+  };
+
   if (error) return <div>{error}</div>;
 
+  const currentEntry = entries[currentIndex];
+
   return (
-    <div>
+    <div className="container">
       {editingEntry ? (
         <EditEntryForm entry={editingEntry} onUpdate={handleUpdate} onCancel={handleCancelEdit} />
       ) : (
         entries.length > 0 ? (
-          entries.map(entry => (
-            <div key={entry._id}>
-              <h2>{entry.location}</h2>
-              {entry.photo && (
+          <div className="carousel">
+            <button className="nav-button left" onClick={handlePrevious}>◀</button>
+            <div className="entry-item">
+              <h2>{currentEntry.location}</h2>
+              {currentEntry.photo && (
                 <div>
-                  <img src={entry.photo} style={{ width: '100%' }} alt="Entry" />
+                  <img src={currentEntry.photo} alt="Entry" className="entry-photo" />
                 </div>
               )}
-              <p>{entry.notes}</p>
-              <p>{new Date(entry.startDate).toLocaleDateString()} - {new Date(entry.endDate).toLocaleDateString()}</p>
-              <p>Duration: {entry.duration} days</p>
-              <button onClick={() => handleDelete(entry._id)}>Delete</button>
-              <button onClick={() => handleEdit(entry)}>Edit</button> {/* Edit button */}
+              <p>{currentEntry.notes}</p>
+              <p>{new Date(currentEntry.startDate).toLocaleDateString()} - {new Date(currentEntry.endDate).toLocaleDateString()}</p>
+              <p>Duration: {currentEntry.duration} days</p>
+              <button onClick={() => handleDelete(currentEntry._id)} className="entry-button">Delete</button>
+              <button onClick={() => handleEdit(currentEntry)} className="entry-button">Edit</button>
             </div>
-          ))
+            <button className="nav-button right" onClick={handleNext}>▶</button>
+          </div>
         ) : (
           <p>No entries found.</p>
         )

@@ -1,7 +1,6 @@
-// src/components/Header.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Header.css'; // Ensure you have the correct path
+import '../styles/Header.css'; // Ensure the path is correct
 
 const Header = () => {
   return (
@@ -15,15 +14,13 @@ const Header = () => {
             <Link to="/favorites">Favorites</Link>
           </li>
           <li>
-            <Link to="/do-not-recommend">Do Not Recommend</Link>
+            <Link to="/do-not-recommend">Would Not Repeat</Link>
           </li>
           <li>
             <Link to="/map">Map</Link>
           </li>
-          <li>
-            <Link to="/create-entry">Create Entry</Link>
-          </li>
         </ul>
+        <Link to="/create-entry" className="create-entry">Create New Travel Entry</Link>
       </nav>
     </header>
   );

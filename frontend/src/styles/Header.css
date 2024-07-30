@@ -1,34 +1,55 @@
 /* src/styles/Header.css */
 
 .header {
-    background: #b82828; /* Dark background for header */
-    color: #130101; /* White text color */
-    padding: 10px 0;
-    text-align: center; 
-}
-
-.nav {
+    background-color: #5F6F52; /* Dark green background for the header */
+    padding: 10px 20px;
+    color: #FEFAE0; /* Light cream text color */
+  }
+  
+  .nav {
     display: flex;
-    justify-content: center;
-}
-
-.nav-links {
-    list-style-type: none;
+    justify-content: space-between; /* Space between the nav items and the Create New Entry button */
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none; /* Remove default list styling */
     padding: 0;
-    display: flex; /* Horizontal layout */
-    justify-content: space-around; /* Space out links */
-    width: 50%; /* Spread out across the width */
-}
-
-.nav-links li {
-    margin: 0 15px; /* Spacing between links */
-}
-
-.nav-links a {
-    color: #161652; /* White color for header links */
+    margin: 0;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links a {
+    color: #FEFAE0; /* Light cream color for links */
     text-decoration: none;
-}
-
-.nav-links a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #B99470; /* Darker beige border */
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    background-color: #B99470; /* Darker beige background on hover */
+    color: #5F6F52; /* Dark green text on hover */
+  }
+  
+  .create-entry {
+    background-color: #B99470; /* Darker beige for Create Entry button */
+    color: #FEFAE0; /* Light cream text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .create-entry:hover {
+    background-color: #5F6F52; /* Dark green on hover */
+    color: #FEFAE0; /* Light cream text on hover */
+  }
+  

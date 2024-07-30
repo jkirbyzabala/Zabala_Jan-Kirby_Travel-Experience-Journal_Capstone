@@ -9,6 +9,6 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // Import Mapbox GL CSS
 const root = ReactDOM.createRoot(document.getElementById('root')); // Create root
 root.render(
   <React.StrictMode>
-    <App /> // Main application component
+    <App /> 
   </React.StrictMode>
 );

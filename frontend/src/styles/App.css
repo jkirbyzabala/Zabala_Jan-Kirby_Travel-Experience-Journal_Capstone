@@ -2,88 +2,25 @@
 
 /* Basic reset for margins and paddings */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Body styling */
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f0f0f0; /* Light grey background */
-    color: #333; /* Dark grey text color */
-  }
-  
-  /* Main container styling */
-  .container {
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff; /* White background for content area */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
-  
-  /* Header styling */
-  /* header {
-    background: #333; /* Dark background for header */
-    /* color: #fff; /* White text color */
-    /* padding: 10px 0; */
-    /* text-align: center; */ 
-  /* } */ */
-  
-  /* Links styling */
-  a {
-    color: #007bff; /* Blue color for links */
-    text-decoration: none; /* Remove underline */
-  }
-  
-  a:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
-  
-  /* Button styling */
-  button {
-    background: #007bff; /* Blue background */
-    color: #fff; /* White text */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-  }
-  
-  button:hover {
-    background: #0056b3; /* Darker blue on hover */
-  }
-  
-  /* Form styling */
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  form input, form textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 4px; /* Rounded corners */
-  }
-  
-  form textarea {
-    resize: vertical; /* Allow vertical resize only */
-  }
-  
-  /* List styling */
-  ul {
-    list-style: none; /* Remove default list styles */
-  }
-  
-  li {
-    background: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd; /* Light grey border */
-    border-radius: 4px; /* Rounded corners */
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #EEE3CB; /* Light beige background */
+  color: #967E76; /* Darker text color */
+}
+
+/* Main container styling */
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #FFF; /* White background for content area */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}

@@ -1,6 +1,4 @@
 const path = require('path');
-
-// Import necessary modules
 const express = require('express'); // Import Express for server functionality
 const mongoose = require('mongoose'); // Import Mongoose for MongoDB connection
 const cors = require('cors'); // Import CORS for handling cross-origin requests

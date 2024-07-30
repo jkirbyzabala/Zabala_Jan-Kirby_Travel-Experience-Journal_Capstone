@@ -1,28 +1,26 @@
-import React, { useState } from 'react'; // Import React and useState hook for managing form state
-import axios from 'axios'; // Import axios for making HTTP requests
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const EntryForm = ({ onAddEntry }) => {
-  const [location, setLocation] = useState(''); // State for entry location
-  const [startDate, setStartDate] = useState(''); // State for entry start date
-  const [endDate, setEndDate] = useState(''); // State for entry end date
-  const [photo, setPhoto] = useState(''); // State for entry photo URL
-  const [notes, setNotes] = useState(''); // State for entry notes
+  const [location, setLocation] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [photo, setPhoto] = useState('');
+  const [notes, setNotes] = useState('');
 
-  // Calculate duration based on start and end dates
   const calculateDuration = (start, end) => {
     const startDate = new Date(start);
     const endDate = new Date(end);
-    return Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)); // Duration in days
+    return Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     const calculatedDuration = calculateDuration(startDate, endDate);
 
     try {
-      const response = await axios.post('http://localhost:5000/entries', { // Correct URL
+      const response = await axios.post('http://localhost:5000/entries', {
         location,
         startDate,
         endDate,
@@ -31,8 +29,7 @@ const EntryForm = ({ onAddEntry }) => {
         notes
       });
 
-      onAddEntry(response.data); // Call the parent callback with the new entry data
-      // Clear form inputs
+      onAddEntry(response.data);
       setLocation('');
       setStartDate('');
       setEndDate('');
@@ -71,4 +68,3 @@ const EntryForm = ({ onAddEntry }) => {
 };
 
 export default EntryForm;
-

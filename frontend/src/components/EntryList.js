@@ -1,35 +1,26 @@
-import React, { useEffect, useState } from 'react'; // Import React, useEffect, and useState
+import React from 'react'; // Import React
 import axios from 'axios'; // Import axios for making HTTP requests
 
-const EntryList = () => {
-  const [entries, setEntries] = useState([]); // State to store the list of travel entries
-
-  // Fetch travel entries from the server when the component mounts
-  useEffect(() => {
-    const fetchEntries = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/entries'); // Correct API endpoint
-        setEntries(response.data.data); // Update state with the fetched travel entries
-      } catch (error) {
-        console.error('Error fetching travel entries:', error);
-      }
-    };
-
-    fetchEntries();
-  }, []); // Empty dependency array means this runs once after the initial render
+const EntryList = ({ entries, onDeleteEntry }) => {
+  // Function to handle deleting an entry
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`/entries/${id}`); // Make DELETE request to the server
+      onDeleteEntry(id); // Notify parent component about the deletion
+    } catch (error) {
+      console.error('Error deleting entry:', error);
+    }
+  };
 
   return (
     <div>
-      <h2>Travel Entries</h2>
+      <h2>Entries</h2>
       <ul>
         {entries.map((entry) => (
           <li key={entry._id}>
-            <h3>{entry.location}</h3>
-            <p>Start Date: {new Date(entry.startDate).toLocaleDateString()}</p>
-            <p>End Date: {new Date(entry.endDate).toLocaleDateString()}</p>
-            <p>Duration: {entry.duration} days</p>
-            <img src={entry.photo} alt={entry.location} style={{ width: '100px', height: '100px' }} />
-            <p>Notes: {entry.notes}</p>
+            <h3>{entry.title}</h3>
+            <p>{entry.location}</p>
+            <button onClick={() => handleDelete(entry._id)}>Delete</button>
           </li>
         ))}
       </ul>

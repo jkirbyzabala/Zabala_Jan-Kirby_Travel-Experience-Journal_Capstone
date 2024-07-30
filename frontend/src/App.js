@@ -1,4 +1,3 @@
-// App.js
 import React from 'react'; // Import React for building the UI
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router and Routes components for routing
 import HomePage from './pages/HomePage'; // Import the HomePage component
@@ -17,7 +16,7 @@ const App = () => {
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/do-not-recommend" element={<DoNotRecommendPage />} />
         <Route path="/map" element={<MapPage />} />
-        <Route path="/create-entry" element={<EntryFormPage />} /> {/* Define the route here */}
+        <Route path="/create-entry" element={<EntryFormPage />} />
       </Routes>
     </Router>
   );

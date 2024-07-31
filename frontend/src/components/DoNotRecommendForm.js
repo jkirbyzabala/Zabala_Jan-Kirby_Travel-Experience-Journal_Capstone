@@ -7,8 +7,8 @@ import axios from 'axios';
 const DoNotRecommendForm = ({ onAddEntry }) => {
   // State to manage form input values
   const [formData, setFormData] = useState({
-    name: '',
-    reason: ''
+    name: 'St Louis, Missouri',
+    reason: 'car got pew-pewed :('
   });
 
   // Handler for form input changes

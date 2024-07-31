@@ -68,6 +68,10 @@ const HomePage = () => {
 
   return (
     <div className="container">
+      <header className="home-header">
+        <h1>Welcome to Your Travel Journal</h1>
+        <p>Discover and document your travel experiences with ease. Whether you're exploring new cities or revisiting favorite spots, our Travel Journal helps you keep track of all your adventures. Start by creating a new entry or browse through your past journeys.</p>
+      </header>
       {editingEntry ? (
         <EditEntryForm entry={editingEntry} onUpdate={handleUpdate} onCancel={handleCancelEdit} />
       ) : (
@@ -75,17 +79,19 @@ const HomePage = () => {
           <div className="carousel">
             <button className="nav-button left" onClick={handlePrevious}>◀</button>
             <div className="entry-item">
-              <h2>{currentEntry.location}</h2>
+              <div className="entry-info">
+                <h2>{currentEntry.location}</h2>
+                <p>{currentEntry.notes}</p>
+                <p>{new Date(currentEntry.startDate).toLocaleDateString()} - {new Date(currentEntry.endDate).toLocaleDateString()}</p>
+                <p>Duration: {currentEntry.duration} days</p>
+                <button onClick={() => handleDelete(currentEntry._id)} className="entry-button">Delete</button>
+                <button onClick={() => handleEdit(currentEntry)} className="entry-button">Edit</button>
+              </div>
               {currentEntry.photo && (
-                <div>
+                <div className="entry-photo-container">
                   <img src={currentEntry.photo} alt="Entry" className="entry-photo" />
                 </div>
               )}
-              <p>{currentEntry.notes}</p>
-              <p>{new Date(currentEntry.startDate).toLocaleDateString()} - {new Date(currentEntry.endDate).toLocaleDateString()}</p>
-              <p>Duration: {currentEntry.duration} days</p>
-              <button onClick={() => handleDelete(currentEntry._id)} className="entry-button">Delete</button>
-              <button onClick={() => handleEdit(currentEntry)} className="entry-button">Edit</button>
             </div>
             <button className="nav-button right" onClick={handleNext}>▶</button>
           </div>
